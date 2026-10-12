@@ -1,0 +1,15 @@
+Phần 1. Phân tích
+1. Vì sao Notepad bị “Not Responding” khi mở file 800 MB?
+Notepad có thể phải nạp và xử lý lượng dữ liệu rất lớn trong RAM để hiển thị, khiến máy thiếu bộ nhớ hoặc mất nhiều thời gian xử lý nên bị treo.
+2. Vì sao cat bị lỗi trong CMD?
+CMD: Không có lệnh cat mặc định nên báo lỗi command not found hoặc thông báo tương tự.
+PowerShell: cat là alias (bí danh) của lệnh Get-Content, dùng để đọc nội dung tệp tin.
+Phần 2. Bộ lệnh PowerShell chuẩn
+Câu 1. Xem toàn bộ nội dung file
+Get-Content .\server_log_800MB.log
+Lưu ý: Với file 800 MB, lệnh này có thể tốn nhiều RAM và thời gian nếu hiển thị toàn bộ nội dung. Không nên mặc định rằng Get-Content luôn xử lý file lớn mà không tốn bộ nhớ.
+Câu 2. Xem 10 dòng cuối để kiểm tra lỗi mới nhất
+Get-Content .\server_log_800MB.log -Tail 10
+Giải thích: Tham số -Tail 10 giúp lấy 10 dòng cuối của file, phù hợp để kiểm tra log mới nhất mà không cần hiển thị toàn bộ nội dung.
+
+
